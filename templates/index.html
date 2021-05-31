@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDFtoAudiobook</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}">
+</head>
+<!-- <header>
+    <nav id="navbar">
+        <a href="#Home"><h1>PDFtoAudiobook</h1></a>
+        <li>
+          <a href="#About" class="nav-link">About</a>
+          <a href="#Work" class="nav-link">Work</a>
+          <a href="#Contact" class="nav-link">Contact</a>
+        </li>
+      </nav>
+</header> -->
+<body id="Home">
+    <div class="login-wrap">
+        <div class="login-html">
+            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Text PDF </label>
+            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Image PDF</label>
+            <div class="login-form">
+                <div class="sign-in-htm" style="padding: 20px;">
+                    <div class="group">
+                        <form method="post" action="/" enctype="multipart/form-data">
+                        <label for="user" class="label">Upload file</label>
+                        <input id="user" type="file" name="file" autocomplete="off" class="input" required>
+                    </div>
+                    <div class="group">
+                        <input type="submit" class="button" value="Upload">
+                    </div>
+                </form>
+                    <div class="hr"></div>
+                    <div class="group">
+                        <p>
+                            {% with messages = get_flashed_messages() %}
+                              {% if messages %}
+                                <ul class=flashes>
+                                {% for message in messages %}
+                                  <li>{{ message }}</li>
+                                {% endfor %}
+                                </ul>
+                                <div class="group">
+                                    <p>
+                                        <a class="button" href="{{url_for('downloadFile')}}">Download Audiobook</a>
+                                    </p>
+                                </div>
+                              {% endif %}
+                            {% endwith %}
+                        </p>
+                    </div>
+                </div>
+                <div class="sign-up-htm" style="padding: 20px;">
+                    <div class="group">
+                        <form method="post" action="/image" enctype="multipart/form-data">
+                        <label for="user" class="label">Upload file</label>
+                        <input id="user" type="file" name="file" autocomplete="off" class="input" required>
+                    </div>
+                    <div class="group">
+                        <input type="submit" class="button" value="Upload">
+                    </div>
+                </form>
+                    <div class="hr"></div>
+                    <div class="group">
+                        <p>
+                            {% with messages = get_flashed_messages() %}
+                              {% if messages %}
+                                <ul class=flashes>
+                                {% for message in messages %}
+                                  <li>{{ message }}</li>
+                                {% endfor %}
+                                </ul>
+                                <div class="group">
+                                    <p>
+                                        <a class="button" href="{{url_for('downloadFile')}}">Download Audiobook</a>
+                                    </p>
+                                </div>
+                              {% endif %}
+                            {% endwith %}
+                        </p>
+                    </div>
+                    <!-- <div class="group">
+                        <label for="user" class="input"><b>Project Supervisor : Dr. Subhamita Mukherjee</b></label>
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="input">Gourav Emmanuel</label>    
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="input">Malay Sourav</label>   
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="input">Krishnendu Patra</label>
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="input">Nausheen Parween</label>    
+                    </div>
+                    <div class="hr"></div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>    
+</body>
+</html>
